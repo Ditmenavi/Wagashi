@@ -1,6 +1,6 @@
 @import url(css/theme.css);
 :root{
-    --sidebar-width: 70px;
+    --sidebar-width: 80px;
 }
 .material-symbols-rounded{
     user-select: none;
@@ -60,13 +60,36 @@
     width: 50px;
     height: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    transition: background 100ms;
+    transition: all 150ms;
+}
+.category-text{
+    font-size: 11px;
+    transform: scale(0);
+    width: 0;
+    height: 0;
+    font-weight: 600;
+    user-select: none;
 }
 .category-element-cont:hover .category-element{
     background: var(--md-sys-color-on-secondary);
+}
+.category-element-cont:focus .category-element{
+    background: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-background);
+    height: 40px;
+    width: 65px;
+    border-radius: 12px;
+}
+.category-element-cont:focus .category-text{
+    -webkit-animation: scale-in-top 150ms  both;
+    animation: scale-in-top 150ms  both;
+    width: fit-content;
+    height: 11px;
+    transition: all 150ms;
 }
 .category-element-cont{
     width: var(--sidebar-width);
@@ -76,3 +99,41 @@
     align-items: center;
     cursor: pointer;
 }
+/* Animations */
+.scale-in-top {
+	-webkit-animation: scale-in-top 300ms both;
+	        animation: scale-in-top 300ms both;
+}
+ @-webkit-keyframes scale-in-top {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-top {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 50% 0%;
+              transform-origin: 50% 0%;
+      opacity: 1;
+    }
+  }
+  
