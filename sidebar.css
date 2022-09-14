@@ -1,6 +1,9 @@
 @import url(css/theme.css);
 :root{
-    --sidebar-width: 80px;
+    --sidebar-width: 70px;
+}
+*{
+    transition: all 150ms !important;
 }
 .material-symbols-rounded{
     user-select: none;
@@ -16,18 +19,27 @@
 }
 .sidebar-icon-center{
     width: var(--sidebar-width);
-    height: var(--sidebar-width);
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.menu-icon{
+    padding: 10px;
+    border-radius: 50px;
+}
+#menuCont:hover ~ .menu-icon{
+    background: var(--md-sys-color-on-secondary);
+}
 .menu-cont{
     width: calc(var(--sidebar-width) - 25px);
-    height: calc(var(--sidebar-width) - 25px);
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: absolute;
+    opacity: 0;
 }
 .category{
     width: var(--sidebar-width);
@@ -38,20 +50,22 @@
     justify-content: center;
 }
 .submit-faq{
-    width: calc(var(--sidebar-width) - 25px);
-    height: calc(var(--sidebar-width) - 25px);
-    background: var(--md-sys-color-tertiary);
+    width: 45px;
+    height: 45px;
+    background: var(--md-sys-color-secondary);
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-    color: var(--md-sys-color-on-tertiary);
+    color: var(--md-sys-color-on-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 100ms;
     cursor: pointer;
 }
+.submit-faq-extended{
+    width: 175px;
+}
 .submit-faq:hover{
-    background: var(--md-sys-color-on-tertiary-container);
+    background: var(--md-sys-color-on-secondary-container);
 }
 .submit-faq .material-symbols-rounded{
     font-size: 22px;
@@ -60,19 +74,18 @@
     width: 50px;
     height: 30px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    transition: all 150ms;
 }
 .category-text{
     font-size: 11px;
     transform: scale(0);
     width: 0;
-    height: 0;
     font-weight: 600;
     user-select: none;
+    padding-bottom: 0px;
+    white-space: nowrap;
 }
 .category-element-cont:hover .category-element{
     background: var(--md-sys-color-on-secondary);
@@ -80,16 +93,9 @@
 .category-element-cont:focus .category-element{
     background: var(--md-sys-color-secondary);
     color: var(--md-sys-color-background);
-    height: 40px;
-    width: 65px;
-    border-radius: 12px;
-}
-.category-element-cont:focus .category-text{
-    -webkit-animation: scale-in-top 150ms  both;
-    animation: scale-in-top 150ms  both;
-    width: fit-content;
-    height: 11px;
-    transition: all 150ms;
+    height: 35px;
+    width: calc(var(--sidebar-width) - 30px) !important;
+    box-shadow: 0 0 15px -5px var(--md-sys-color-secondary);
 }
 .category-element-cont{
     width: var(--sidebar-width);
@@ -100,40 +106,43 @@
     cursor: pointer;
 }
 /* Animations */
-.scale-in-top {
-	-webkit-animation: scale-in-top 300ms both;
-	        animation: scale-in-top 300ms both;
+.scale-in-left {
+	-webkit-animation: scale-in-left 150ms alternate both;
+	        animation: scale-in-left 150ms alternate both;
 }
- @-webkit-keyframes scale-in-top {
+ @-webkit-keyframes scale-in-left {
     0% {
       -webkit-transform: scale(0);
               transform: scale(0);
-      -webkit-transform-origin: 50% 0%;
-              transform-origin: 50% 0%;
-      opacity: 0;
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
+      opacity: 1;
+      width: 0;
     }
     100% {
       -webkit-transform: scale(1);
               transform: scale(1);
-      -webkit-transform-origin: 50% 0%;
-              transform-origin: 50% 0%;
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
       opacity: 1;
+      width: fit-content;
     }
   }
-  @keyframes scale-in-top {
+  @keyframes scale-in-left {
     0% {
       -webkit-transform: scale(0);
               transform: scale(0);
-      -webkit-transform-origin: 50% 0%;
-              transform-origin: 50% 0%;
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
       opacity: 1;
+      width: 0;
     }
     100% {
       -webkit-transform: scale(1);
               transform: scale(1);
-      -webkit-transform-origin: 50% 0%;
-              transform-origin: 50% 0%;
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
       opacity: 1;
+      width: fit-content;
     }
   }
-  

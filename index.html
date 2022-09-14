@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div class="body">
         <div class="sidebar">
             <div class="menu sidebar-icon-center">
-                <div class="menu-cont">
-                    <span class="material-symbols-rounded">menu</span>
-                </div>
+                <input type="checkbox" class="menu-cont" id="menuCont">
+                <span class="material-symbols-rounded menu-icon">menu</span>
             </div>
             <div class="submit sidebar-icon-center">
                 <div class="submit-faq">
                     <span class="sidebar-icon material-symbols-rounded">edit</span>
+                    <span class="category-text">Gửi văn mẫu</span>
                 </div>
             </div>
             <div class="category">
@@ -74,6 +75,7 @@
             </div>
         </div>
         <div class="contents"></div>
+        <script src="sidebar.js"></script>
     </div>
 </body>
 </html>
