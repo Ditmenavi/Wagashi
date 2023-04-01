@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "583650894277",
+    "firebase_url": "https://ditmenavi3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ditmenavi3",
+    "storage_bucket": "ditmenavi3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583650894277:android:af13f25427ff4b5eedabac",
+        "android_client_info": {
+          "package_name": "com.neekowo.ditmenavi3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583650894277-1uacekj6vu0fe6ui72h2a52oaaq53qpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKsL3y8P_ODT0v5IAOyroJtegItUoxdxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583650894277-1uacekj6vu0fe6ui72h2a52oaaq53qpe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "583650894277-b4kpkv7ri9vi5u60vr0248vuhou5k1af.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ditmenavi3"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
