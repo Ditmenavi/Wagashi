@@ -1,10 +1,9 @@
+import 'package:ditmenavi3/custom_widgets/search_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 // import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import 'package:flutter/foundation.dart';
-import 'user_avatar.dart';
-import 'package:ditmenavi3/api_calls.dart';
 
 // ignore: must_be_immutable
 class UniversalBody extends StatelessWidget {
@@ -44,12 +43,12 @@ class _BodyState extends State<Body> {
   final String? email = FirebaseAuth.instance.currentUser!.email;
   Future<String?>? displayNameFuture;
 
-  @override
-  void initState() {
-    super.initState();
-    displayNameFuture = Future.delayed(const Duration(seconds: 3))
-        .then((_) => getUserDisplayName(email!), onError: (error) => print('Error: $error'));
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   displayNameFuture = Future.delayed(const Duration(milliseconds: 1500))
+  //       .then((_) => getUserDisplayName(email!), onError: (error) => print('Error: $error'));
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,89 +56,59 @@ class _BodyState extends State<Body> {
       builder: (BuildContext context) {
         final colorScheme = Theme.of(context).colorScheme;
         return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: FutureBuilder(
-                future: displayNameFuture,
-                builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
-                  if (snapshot.hasData) {
-                    final displayName = snapshot.data ?? '';
-                    return Text(
-                      'Chào mừng trở lại, $displayName!',
-                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                    );
-                  } else if (snapshot.hasError) {
-                    return const Text(
-                      'Gomenasorry, anh bạn không có tên trong database của DitmeNavi 💀.',
-                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                    );
-                  } else {
-                    return const Text(
-                      'Đang lấy thông tin người dùng...',
-                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-                    );
-                  }
-                }),
-            actions: [
-              SizedBox(
-                width: 56,
-                height: 56,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const UserAvatar(),
-                  hoverColor: Theme.of(context).colorScheme.primary.withOpacity(0.0),
-                ),
-              ),
-            ],
-          ),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             child: Center(
-              child: Row(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  const SearchBar(),
                   LayoutBuilder(
                     builder: (BuildContext context, BoxConstraints constraints) {
                       double railWidth = widget.railWidth;
                       double availableWidth = MediaQuery.of(context).size.width - railWidth - 28;
                       double maxWidth = availableWidth > 840 ? 840 : availableWidth;
-                      return ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxWidth: maxWidth,
-                        ),
-                        child: MasonryGridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 20,
-                          mainAxisSpacing: 0,
-                          crossAxisSpacing: 14,
-                          gridDelegate:
-                              SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: widget.crossAxisCount),
-                          itemBuilder: (context, index) {
-                            return Column(
-                              children: [
-                                const SizedBox(
-                                  height: 14,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    // border: Border.all(color: colorScheme.primary, width: 1.5),
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: colorScheme.surfaceTint.withOpacity(0.12),
-                                  ),
-                                  height: 200,
-                                  child: Center(
-                                    child: Text(
-                                      '$index',
-                                      style: TextStyle(color: colorScheme.primary),
+                      return Column(
+                        children: [
+                          ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxWidth: maxWidth,
+                            ),
+                            child: MasonryGridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: 20,
+                              mainAxisSpacing: 0,
+                              crossAxisSpacing: 14,
+                              gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: widget.crossAxisCount),
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                    const SizedBox(
+                                      height: 14,
                                     ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        // border: Border.all(color: colorScheme.primary, width: 1.5),
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: colorScheme.surfaceTint.withOpacity(0.12),
+                                      ),
+                                      height: 200,
+                                      child: Center(
+                                        child: Text(
+                                          '$index',
+                                          style: TextStyle(color: colorScheme.primary),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
