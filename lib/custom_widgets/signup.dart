@@ -15,7 +15,7 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -30,14 +30,14 @@ class _SignupPageState extends State<SignupPage> {
       barrierDismissible: false,
       context: context,
       builder: (context) {
-        return Center(
+        return const Center(
           child: Dialog(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+              padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   CircularProgressIndicator(),
                   SizedBox(
                     height: 20,
@@ -62,14 +62,14 @@ class _SignupPageState extends State<SignupPage> {
       showDialog(
         context: context,
         builder: (context) {
-          return Center(
+          return const Center(
             child: Dialog(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Icon(
                       Icons.password_rounded,
                       size: 64.0,
@@ -97,6 +97,7 @@ class _SignupPageState extends State<SignupPage> {
       // ignore: use_build_context_synchronously
       if (mounted) {
         Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, '/home');
       }
     } on FirebaseAuthException catch (e) {
       // ignore: use_build_context_synchronously
@@ -107,14 +108,14 @@ class _SignupPageState extends State<SignupPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,
@@ -138,14 +139,14 @@ class _SignupPageState extends State<SignupPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,
@@ -169,14 +170,14 @@ class _SignupPageState extends State<SignupPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.alternate_email_rounded,
                         size: 64.0,
@@ -203,14 +204,14 @@ class _SignupPageState extends State<SignupPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,
@@ -340,7 +341,7 @@ class _SignupPageState extends State<SignupPage> {
                           child: const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             child: Text(
-                              'Đăng ký',
+                              'Đăng nhập',
                               style: TextStyle(fontWeight: FontWeight.w600),
                             ),
                           ),

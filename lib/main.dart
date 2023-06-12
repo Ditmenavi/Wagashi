@@ -2,11 +2,11 @@ import 'package:ditmenavi3/firebase_options.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import './layout/desktop_layout.dart';
-import './layout/tablet_layout.dart';
-import './layout/mobile_layout.dart';
 import './url_strategy_native.dart' if (dart.library.html) './url_strategy_web.dart';
 import './auth.dart';
+import './context_wrapper.dart';
+import 'custom_widgets/body.dart';
+import 'package:flutter/services.dart';
 
 // * For future me
 // * If you got stuck with a bug what you don't know how to fix,
@@ -18,6 +18,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // await AuthService().getOrCreateUser();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.transparent, // navigation bar color
+    statusBarColor: Color(0xff1B1B1B), // status bar color
+  ));
   runApp(const MyApp());
   urlConfig();
 }
@@ -33,31 +37,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DynamicColorBuilder(
-      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-        return MediaQuery(
-          data: const MediaQueryData(),
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            themeMode: ThemeMode.system,
-            theme: ThemeData(
-              colorScheme: lightDynamic ?? defaultFallbackColorScheme,
-              useMaterial3: true,
-              fontFamily: 'Montserrat',
-            ),
-            darkTheme: ThemeData(
-              colorScheme: darkDynamic ?? defaultFallbackColorSchemeDark,
-              useMaterial3: true,
-              fontFamily: 'Montserrat',
-            ),
-            home: const AuthPage(),
-          ),
-        );
-      },
+    return SafeArea(
+      child: ContextWrapper(
+        context: context,
+        child: DynamicColorBuilder(
+          builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+            return MediaQuery(
+              data: const MediaQueryData(),
+              child: MaterialApp(
+                title: 'DitmeNavi',
+                debugShowCheckedModeBanner: false,
+                themeMode: ThemeMode.dark,
+                theme: ThemeData(
+                  colorScheme: lightDynamic ?? defaultFallbackColorScheme,
+                  useMaterial3: true,
+                  fontFamily: 'Montserrat',
+                ),
+                darkTheme: ThemeData(
+                  colorScheme: darkDynamic ?? defaultFallbackColorSchemeDark,
+                  useMaterial3: true,
+                  fontFamily: 'Montserrat',
+                ),
+                routes: {
+                  '/auth': (context) => const AuthPage(),
+                  '/home': (context) => UniversalBody(crossAxisCount: 1, railWidth: 0)
+                },
+                home: const AuthPage(),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
 
+// * Responsive
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -71,11 +86,20 @@ class _HomeState extends State<Home> {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 600) {
-          return const BuildMobileLayout();
+          return UniversalBody(
+            crossAxisCount: 1,
+            railWidth: 0,
+          );
         } else if (constraints.maxWidth < 840) {
-          return const BuildTabletLayout();
+          return UniversalBody(
+            crossAxisCount: 1,
+            railWidth: 0,
+          );
         } else {
-          return const BuildDesktopLayout();
+          return UniversalBody(
+            crossAxisCount: 1,
+            railWidth: 0,
+          );
         }
       },
     );

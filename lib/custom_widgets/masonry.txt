@@ -1,0 +1,32 @@
+MasonryGridView.builder(
+                          shrinkWrap = true,
+                          physics = const NeverScrollableScrollPhysics(),
+                          itemCount = 20,
+                          mainAxisSpacing = 0,
+                          crossAxisSpacing = 14,
+                          gridDelegate =
+                              SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: widget.crossAxisCount),
+                          itemBuilder = (context, index) {
+                            return Column(
+                              children: [
+                                const SizedBox(
+                                  height: 14,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    // border: Border.all(color: colorScheme.primary, width: 1.5),
+                                    borderRadius: BorderRadius.circular(16),
+                                    color: colorScheme.surfaceTint.withOpacity(0.12),
+                                  ),
+                                  height: 200,
+                                  child: Center(
+                                    child: Text(
+                                      '$index',
+                                      style: TextStyle(color: colorScheme.primary),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),

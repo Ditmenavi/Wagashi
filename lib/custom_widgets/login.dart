@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
   FocusNode fieldOne = FocusNode();
@@ -26,14 +26,14 @@ class _LoginPageState extends State<LoginPage> {
       barrierDismissible: false,
       context: context,
       builder: (context) {
-        return Center(
+        return const Center(
           child: Dialog(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+              padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   CircularProgressIndicator(),
                   SizedBox(
                     height: 20,
@@ -66,14 +66,14 @@ class _LoginPageState extends State<LoginPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,
@@ -97,14 +97,14 @@ class _LoginPageState extends State<LoginPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,
@@ -128,14 +128,14 @@ class _LoginPageState extends State<LoginPage> {
         showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: Dialog(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
+                  padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.psychology_alt_rounded,
                         size: 64.0,

@@ -1,16 +1,13 @@
 import 'dart:convert';
-// ignore: avoid_web_libraries_in_flutter
-// import 'dart:html';
-// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 
 class ApiCalls {
-  static Future<void> importUser(String email, String displayName, [String? avatar]) async {
+  static void importUser(email, displayName, [avatar]) async {
     String url = 'https://api.ditmenavi.com/user/import/';
     Map<String, dynamic> data = {'email': email, 'displayName': displayName, 'avatar': avatar};
     String jsonData = jsonEncode(data);
     try {
-      var response = await http.post(
+      http.Response response = await http.post(
         Uri.parse(url),
         headers: {'Content-Type': 'application/json;charset=UTF-8'},
         body: jsonData,

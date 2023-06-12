@@ -5,9 +5,6 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 600),
-      child: const TextField(),
-    );
+    return const Placeholder();
   }
 }
