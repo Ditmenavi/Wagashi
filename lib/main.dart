@@ -26,7 +26,7 @@ void main() async {
   urlConfig();
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   static final defaultFallbackColorScheme =
@@ -36,34 +36,36 @@ class MyApp extends StatelessWidget {
       ColorScheme.fromSeed(seedColor: const Color(0xff006f18), brightness: Brightness.dark);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ContextWrapper(
         context: context,
         child: DynamicColorBuilder(
           builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-            return MediaQuery(
-              data: const MediaQueryData(),
-              child: MaterialApp(
-                title: 'DitmeNavi',
-                debugShowCheckedModeBanner: false,
-                themeMode: ThemeMode.dark,
-                theme: ThemeData(
-                  colorScheme: lightDynamic ?? defaultFallbackColorScheme,
-                  useMaterial3: true,
-                  fontFamily: 'Montserrat',
-                ),
-                darkTheme: ThemeData(
-                  colorScheme: darkDynamic ?? defaultFallbackColorSchemeDark,
-                  useMaterial3: true,
-                  fontFamily: 'Montserrat',
-                ),
-                routes: {
-                  '/auth': (context) => const AuthPage(),
-                  '/home': (context) => UniversalBody(crossAxisCount: 1, railWidth: 0)
-                },
-                home: const AuthPage(),
+            return MaterialApp(
+              title: 'DitmeNavi',
+              debugShowCheckedModeBanner: false,
+              themeMode: ThemeMode.dark,
+              theme: ThemeData(
+                colorScheme: lightDynamic ?? MyApp.defaultFallbackColorScheme,
+                useMaterial3: true,
+                fontFamily: 'Montserrat',
               ),
+              darkTheme: ThemeData(
+                colorScheme: darkDynamic ?? MyApp.defaultFallbackColorSchemeDark,
+                useMaterial3: true,
+                fontFamily: 'Montserrat',
+              ),
+              routes: {
+                '/auth': (context) => const AuthPage(),
+                '/home': (context) => UniversalBody(crossAxisCount: 1, railWidth: 0)
+              },
+              home: const AuthPage(),
             );
           },
         ),

@@ -29,7 +29,7 @@ const RESOURCES = {"assets/AssetManifest.json": "e099659bfaf5f9f205a9d9951b57009
 "assets/assets/Montserrat/Montserrat-Thin.ttf": "43dd5b7a3d277362d5e801e5353e3a01",
 "assets/assets/Montserrat/Montserrat-ThinItalic.ttf": "3c2b290f95cd5b33c3ead2911064a2ab",
 "assets/FontManifest.json": "09f8d46cc3a250825da56e6511765da9",
-"assets/fonts/MaterialIcons-Regular.otf": "32c76d51869574591078924b5597209f",
+"assets/fonts/MaterialIcons-Regular.otf": "3c30165bf5da1904d4aeb9a5f4810156",
 "assets/NOTICES": "023c46c547c94d8127c8cbbb0c21123a",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "0db203e8632f03baae0184700f3bda48",
@@ -49,9 +49,9 @@ const RESOURCES = {"assets/AssetManifest.json": "e099659bfaf5f9f205a9d9951b57009
 "icons/Icon-512.png": "3732ace70ba79f01c0879ad16e1d8ade",
 "icons/Icon-maskable-192.png": "6133998ff2c92139f7a45250e879cb12",
 "icons/Icon-maskable-512.png": "3732ace70ba79f01c0879ad16e1d8ade",
-"index.html": "571602ac8f5a5f1cb9e988c72f90e4d3",
-"/": "571602ac8f5a5f1cb9e988c72f90e4d3",
-"main.dart.js": "507111888ec1c758aa90a091933d4311",
+"index.html": "6cf94b823d3f0b7d81a9a609de324e4d",
+"/": "6cf94b823d3f0b7d81a9a609de324e4d",
+"main.dart.js": "f62be668328ff9167635d50c4f7f4335",
 "manifest.json": "4354bffa9e9be3fefd9a7eeef369f097",
 "version.json": "82e96f5d0bd1cbe290731584608ba6a0"};
 // The application shell files that are downloaded before a service worker can

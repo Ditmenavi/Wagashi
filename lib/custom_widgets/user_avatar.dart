@@ -15,15 +15,15 @@ class _UserAvatarState extends State<UserAvatar> {
     if (FirebaseAuth.instance.currentUser!.photoURL == null) {
       return SvgPicture.asset(
         'assets/default-avatar.svg',
-        height: 48,
-        width: 48,
+        height: 42,
+        width: 42,
         // ignore: deprecated_member_use
         color: Theme.of(context).colorScheme.surfaceTint,
       );
     } else {
       return Container(
-        width: 48,
-        height: 48,
+        width: 42,
+        height: 42,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           image: DecorationImage(

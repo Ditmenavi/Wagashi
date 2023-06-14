@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
   FocusNode fieldOne = FocusNode();
@@ -56,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       // ignore: use_build_context_synchronously
       if (mounted) {
         Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, '/home');
       }
     } on FirebaseAuthException catch (e) {
       // ignore: use_build_context_synchronously
